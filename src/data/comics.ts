@@ -31,7 +31,7 @@ export const comics: ComicPage[] = [
     thumb2x: "/thumbs/fringe-far-out@2x.jpg",
     full: "/comics/fringe-far-out.jpg",
     full2x: "/comics/fringe-far-out.jpg",
-    description: "Tales from the unfathomed fringe.",
+    description: "Tales from the unfathomed fringe!",
     width: 2325,
     height: 3150
   }
