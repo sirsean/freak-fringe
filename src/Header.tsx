@@ -1,4 +1,4 @@
-function Header(): JSX.Element {
+function Header() {
   return (
     <header className="sticky top-0 z-20 py-4 shadow-lg" style={{
       background: 'linear-gradient(to bottom, var(--color-brand-950), var(--color-brand-900))',
