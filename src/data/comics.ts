@@ -20,18 +20,18 @@ export const comics: ComicPage[] = [
     thumb2x: "/thumbs/freak-fringe@2x.jpg",
     full: "/comics/freak-fringe.jpg",
     full2x: "/comics/freak-fringe.jpg", // we serve the same file for 2x
-    description: "Cover page of the Freak Fringe story.",
+    description: "How could the missing gastrotechs still be alive!",
     width: 2325,
     height: 3150
   },
   {
     id: 2,
-    title: "Fringe Far-Out",
+    title: "Far Out",
     thumb: "/thumbs/fringe-far-out.jpg",
     thumb2x: "/thumbs/fringe-far-out@2x.jpg",
     full: "/comics/fringe-far-out.jpg",
     full2x: "/comics/fringe-far-out.jpg",
-    description: "Second page: the adventure begins.",
+    description: "Tales from the unfathomed fringe.",
     width: 2325,
     height: 3150
   }
