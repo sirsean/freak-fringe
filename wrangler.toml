@@ -1,0 +1,21 @@
+name = "freak-fringe"
+compatibility_date = "2023-08-01"
+main = "worker/index.ts"
+
+# point to vite build output
+[site]
+bucket = "./dist"
+
+# Optimizations for static comic hosting
+[site.build]
+# Enable compression for better performance
+# This will be handled by Cloudflare automatically
+
+# Environment variables for production
+[env.production]
+name = "freak-fringe"
+
+# Asset handling
+[site.asset-cache]
+# Cache images for longer since they rarely change
+max_age = 31536000 # 1 year

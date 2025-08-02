@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'FringeV2';
+  src: url('/fonts/FringeV2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT-Pressura-Light';
+  src: url('/fonts/GT-Pressura-Mono-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
