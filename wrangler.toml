@@ -1,21 +1,15 @@
 name = "freak-fringe"
-compatibility_date = "2023-08-01"
+account_id = "f400e5cfc5e8cd621a3c3f9264a92bc4"
+compatibility_date = "2024-06-01"
 main = "worker/index.ts"
 
-# point to vite build output
-[site]
-bucket = "./dist"
+[build]
+command = "npm run build"
 
-# Optimizations for static comic hosting
-[site.build]
-# Enable compression for better performance
-# This will be handled by Cloudflare automatically
+[assets]
+binding = "ASSETS"
+directory = "./dist"
 
-# Environment variables for production
-[env.production]
-name = "freak-fringe"
-
-# Asset handling
-[site.asset-cache]
-# Cache images for longer since they rarely change
-max_age = 31536000 # 1 year
+[[routes]]
+pattern = "freak-fringe.sirsean.me"
+custom_domain = true

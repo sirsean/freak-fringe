@@ -5,28 +5,11 @@
 import type { ComicPage } from '../data/comics';
 
 /**
- * Generate a 2x resolution URL from a standard image URL
- * For demo purposes with picsum.photos, doubles the dimensions
- */
-export function generate2xUrl(url: string): string {
-  // For picsum.photos URLs, extract dimensions and double them
-  const picsumMatch = url.match(/(\d+)\/(\d+)/);
-  if (picsumMatch) {
-    const [, width, height] = picsumMatch;
-    return url.replace(`${width}/${height}`, `${parseInt(width) * 2}/${parseInt(height) * 2}`);
-  }
-  
-  // For real applications, you might have a different URL pattern
-  // e.g., filename@2x.jpg or a query parameter like ?dpr=2
-  return url;
-}
-
-/**
  * Generate srcSet string for responsive images
  */
 export function generateSrcSet(baseUrl: string, highResUrl?: string): string {
-  const twoXUrl = highResUrl || generate2xUrl(baseUrl);
-  return `${baseUrl} 1x, ${twoXUrl} 2x`;
+  const twoX = highResUrl ?? baseUrl.replace(/(\.[^.]+)$/, '@2x$1');
+  return `${baseUrl} 1x, ${twoX} 2x`;
 }
 
 /**
