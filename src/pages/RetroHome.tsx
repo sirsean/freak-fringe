@@ -26,6 +26,14 @@ const RetroHome: React.FC = () => {
         <Figurehead />
         <Message />
         <FooterBadges />
+        {/* Construction image at bottom */}
+        <div className="flex justify-center">
+          <img 
+            src="/images/construction.gif" 
+            alt="Under construction" 
+            className="max-w-full h-auto"
+          />
+        </div>
       </div>
     </main>
   );

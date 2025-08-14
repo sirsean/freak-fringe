@@ -1,5 +1,6 @@
 import React from 'react';
 import SparklyDivider from './SparklyDivider';
+import FireDivider from './FireDivider';
 
 /**
  * Intro
@@ -16,10 +17,11 @@ const Intro: React.FC = () => {
   return (
     <section className="text-center">
       <div className="ff-gif-banner">
-        <img src="/images/drifter.gif" alt="drifter" className="drifter" />
+        <img src="/images/drifter.gif" alt="drifter" className="drifter drifter-left" />
         <img src="/images/fs.gif" alt="Freak Fringe logo" className="logo" />
         <img src="/images/drifter.gif" alt="drifter" className="drifter" />
       </div>
+      <FireDivider />
       <p className="paragraph-lg mt-3 text-cyber-400/90 text-glow-cyan max-w-prose mx-auto">
         Welcome to the REAL #1 Freaker community on the grid for collectors of Freak Fringe!!!
       </p>
