@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { comics } from './data/comics';
 import type { ComicPage } from './data/comics';
@@ -9,6 +9,9 @@ const Viewer: React.FC = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState<ComicPage | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [dimensionsReady, setDimensionsReady] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
 
   // Find current page by ID
   useEffect(() => {
@@ -115,6 +118,64 @@ const Viewer: React.FC = () => {
     };
   }, [goToNext, goToPrevious, goToGallery]);
 
+  // Dynamic viewport calculation for enhanced browser compatibility
+  // Provides JS fallback when CSS variables aren't fully supported
+  const updateFrameDimensions = useCallback(() => {
+    if (!frameRef.current || !navRef.current) return;
+    
+    const navHeight = navRef.current.offsetHeight;
+    const padding = 16; // 1rem = 16px (p-4 in Tailwind)
+    const availableWidth = window.innerWidth - (padding * 2);
+    const availableHeight = window.innerHeight - navHeight - (padding * 2);
+    
+    // Set dimensions as inline styles for maximum browser compatibility
+    frameRef.current.style.width = `${availableWidth}px`;
+    frameRef.current.style.height = `${availableHeight}px`;
+  }, []);
+
+  // Update dimensions on mount and resize
+  useEffect(() => {
+    // Delay initial calculation to ensure refs are available and DOM is settled
+    const initialTimeout = setTimeout(() => {
+      updateFrameDimensions();
+      setDimensionsReady(true);
+    }, 100); // Longer delay to ensure everything is rendered
+    
+    let resizeTimeout: number;
+    const handleResize = () => {
+      // Debounce resize events to avoid performance issues
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateFrameDimensions, 100);
+    };
+
+    const handleOrientationChange = () => {
+      // iOS needs extra time after orientation change
+      setTimeout(updateFrameDimensions, 300);
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleOrientationChange);
+    
+    return () => {
+      clearTimeout(initialTimeout);
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+    };
+  }, [updateFrameDimensions]);
+
+  // Reset dimensions ready flag when page changes, then update
+  useEffect(() => {
+    if (currentPage) {
+      setDimensionsReady(false);
+      const timeout = setTimeout(() => {
+        updateFrameDimensions();
+        setDimensionsReady(true);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentPage, updateFrameDimensions]);
+
   if (isLoading) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center" style={{backgroundColor: 'var(--color-dark-bg)'}}>
@@ -161,9 +222,9 @@ const Viewer: React.FC = () => {
   const hasNext = comics.length > 1;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col" style={{backgroundColor: 'var(--color-dark-bg)'}}>
+    <div className="comic-viewer fixed inset-0 z-50 flex flex-col" style={{backgroundColor: 'var(--color-dark-bg)'}}>
       {/* Navigation bar */}
-      <nav className="flex items-center justify-between px-4 h-14 backdrop-blur-md" style={{
+      <nav ref={navRef} className="flex items-center justify-between px-4 h-14 backdrop-blur-md" style={{
         backgroundColor: 'rgba(15, 8, 3, 0.9)', // --color-dark-bg with alpha
         borderBottom: '1px solid var(--color-dark-border)',
         boxShadow: '0 0 10px rgba(255, 149, 0, 0.2)' // --color-brand-500 with alpha
@@ -247,17 +308,26 @@ const Viewer: React.FC = () => {
         </div>
       </nav>
 
-      {/* Image wrapper */}
-      <div className="flex-1 flex items-center justify-center p-4 relative">
+      {/* Comic image frame - precisely sized to available viewport */}
+      <div 
+        ref={frameRef} 
+        className="comic-frame mx-auto"
+        style={{
+          opacity: dimensionsReady ? 1 : 0,
+          transition: 'opacity 0.2s ease-in-out'
+        }}
+      >
         <picture>
           <img
             src={currentPage.full}
             srcSet={generateSrcSet(currentPage.full, currentPage.full2x)}
             alt={generateAltText(currentPage, true)}
-            className="max-w-full max-h-full w-auto h-auto object-contain block"
             loading="eager"
-            width={currentPage.width}
-            height={currentPage.height}
+            style={{
+              aspectRatio: currentPage.width && currentPage.height 
+                ? `${currentPage.width} / ${currentPage.height}` 
+                : undefined
+            }}
           />
         </picture>
         
