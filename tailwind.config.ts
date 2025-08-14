@@ -57,7 +57,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        retro: ['"Press Start 2P"', 'cursive'],
+        retro: ['"Comic Sans MS"', 'cursive', 'sans-serif'],
+        comic: ['"Comic Sans MS"', 'cursive', 'sans-serif'],
+        sans: ['"Comic Sans MS"', 'cursive', 'system-ui', 'sans-serif'],
+        mono: ['"Comic Sans MS"', 'cursive', 'monospace'],
+        serif: ['"Comic Sans MS"', 'cursive', 'serif'],
       },
       boxShadow: {
         // Neon glow style shadows

@@ -54,23 +54,23 @@
   --color-dark-text: #fef3c7;
   --color-dark-text-muted: #d97706;
   
-  --font-family-display: "FringeV2", sans-serif;
-  --font-family-mono: "GT-Pressura-Light", monospace;
-  --font-family-sans: "GT-Pressura-Light", system-ui, sans-serif;
+  --font-family-display: "Comic Sans MS", cursive, sans-serif;
+  --font-family-mono: "Comic Sans MS", cursive, monospace;
+  --font-family-sans: "Comic Sans MS", cursive, system-ui, sans-serif;
 }
 
 /* Set default body font */
 body {
-  font-family: "GT-Pressura-Light", system-ui, sans-serif;
+  font-family: "Comic Sans MS", cursive, system-ui, sans-serif;
   font-size: 1.05rem;
   color: var(--color-cyber-300);
   @apply bg-repeat;
   background-image: url('/images/tile.gif');
 }
 
-/* Use FringeV2 font for titles and headers */
+/* Use Comic Sans font for titles and headers */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "FringeV2", sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 @layer components {
