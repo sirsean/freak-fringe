@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+/* Comic Neue - Comic Sans alternative for consistent mobile rendering */
+@font-face {
+  font-family: 'Comic Neue';
+  src: local('Comic Sans MS'), local('ComicSansMS'),
+       local('Comic Neue Regular'), local('ComicNeue-Regular'),
+       url('/fonts/comic-neue-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: local('Comic Sans MS Bold'), local('ComicSansMS-Bold'),
+       local('Comic Neue Bold'), local('ComicNeue-Bold'),
+       url('/fonts/comic-neue-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'FringeV2';
   src: url('/fonts/FringeV2.otf') format('opentype');

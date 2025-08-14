@@ -57,11 +57,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        retro: ['"Comic Sans MS"', 'cursive', 'sans-serif'],
-        comic: ['"Comic Sans MS"', 'cursive', 'sans-serif'],
-        sans: ['"Comic Sans MS"', 'cursive', 'system-ui', 'sans-serif'],
-        mono: ['"Comic Sans MS"', 'cursive', 'monospace'],
-        serif: ['"Comic Sans MS"', 'cursive', 'serif'],
+        retro: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'sans-serif'],
+        comic: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'sans-serif'],
+        sans: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'system-ui', 'sans-serif'],
+        mono: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'monospace'],
+        serif: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'serif'],
       },
       boxShadow: {
         // Neon glow style shadows
