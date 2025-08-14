@@ -36,6 +36,14 @@ const RetroHome: React.FC = () => {
             className="max-w-full h-auto"
           />
         </div>
+        {/* Visitor count image */}
+        <div className="flex justify-center">
+          <img 
+            src="/images/visitorcount.png" 
+            alt="Visitor count" 
+            className="max-w-full h-auto"
+          />
+        </div>
       </div>
     </main>
   );
