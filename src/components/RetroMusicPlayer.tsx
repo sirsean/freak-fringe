@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 const TRACK_SRC = '/audio/beshtala-chanko-society.mp3';
-const TRACK_TITLE = 'Beshtala Chanko Society';
 
 type PlayState = 'loading' | 'playing' | 'paused' | 'error';
 
@@ -64,7 +63,7 @@ const RetroMusicPlayer: React.FC = () => {
     if (playState === 'playing') {
       audio.pause();
       setPlayState('paused');
-    } else {
+    } else if (playState === 'paused') {
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise
@@ -115,6 +114,8 @@ const RetroMusicPlayer: React.FC = () => {
     );
   }
 
+  const musicEmojis = ['🎵', '🎶', '🎤', '🎧', '🔊', '🎼', '🎹', '🥁', '🎸', '🎺'];
+  
   return (
     <div className="music-bar">
       <audio 
@@ -124,14 +125,35 @@ const RetroMusicPlayer: React.FC = () => {
         preload="auto"
       />
       
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-center gap-6 w-full">
+        {/* Left side emojis */}
+        <div className="flex items-center gap-2">
+          {musicEmojis.slice(0, 5).map((emoji, index) => (
+            <span 
+              key={`left-${index}`}
+              className={`text-lg transition-all duration-300 ${
+                playState === 'playing' 
+                  ? 'animate-bounce text-cyber-400' 
+                  : 'text-cyber-300/40'
+              }`}
+              style={{
+                animationDelay: playState === 'playing' ? `${index * 0.2}s` : '0s',
+                animationDuration: '1.5s'
+              }}
+            >
+              {emoji}
+            </span>
+          ))}
+        </div>
+        
+        {/* Center play/pause button */}
         <button
-          className="btn-audio"
+          className="btn-audio mx-4"
           onClick={togglePlay}
           onKeyDown={handleKeyDown}
           aria-label={getAriaLabel()}
           tabIndex={0}
-          disabled={playState === 'loading' || playState === 'error'}
+          disabled={playState === 'loading'}
         >
           {playState === 'loading' && (
             <div className="animate-spin border-2 border-t-cyan-400 border-transparent w-4 h-4 rounded-full" />
@@ -141,9 +163,25 @@ const RetroMusicPlayer: React.FC = () => {
           </span>
         </button>
         
-        <span className="text-cyber-300/80 text-sm font-mono">
-          🎵 {TRACK_TITLE}
-        </span>
+        {/* Right side emojis */}
+        <div className="flex items-center gap-2">
+          {musicEmojis.slice(5, 10).map((emoji, index) => (
+            <span 
+              key={`right-${index}`}
+              className={`text-lg transition-all duration-300 ${
+                playState === 'playing' 
+                  ? 'animate-bounce text-cyber-400' 
+                  : 'text-cyber-300/40'
+              }`}
+              style={{
+                animationDelay: playState === 'playing' ? `${(index + 5) * 0.2}s` : '0s',
+                animationDuration: '1.5s'
+              }}
+            >
+              {emoji}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

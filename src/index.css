@@ -131,10 +131,11 @@ h1, h2, h3, h4, h5, h6 {
     cursor: not-allowed;
   }
   .music-bar {
-    @apply flex items-center justify-between px-4 py-2 backdrop-blur-sm;
+    @apply flex items-center justify-center px-4 py-3 backdrop-blur-sm;
     background: color-mix(in oklab, var(--color-dark-surface) 70%, transparent 30%);
     border-top: 1px solid var(--color-cyber-500);
     border-bottom: 1px solid var(--color-cyber-500);
+    min-height: 60px;
   }
 }
 
