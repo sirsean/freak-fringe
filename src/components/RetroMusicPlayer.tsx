@@ -131,9 +131,9 @@ const RetroMusicPlayer: React.FC = () => {
           {musicEmojis.slice(0, 5).map((emoji, index) => (
             <span 
               key={`left-${index}`}
-              className={`text-lg transition-all duration-300 ${
+              className={`text-lg transition-all duration-300 music-emoji-grunge ${
                 playState === 'playing' 
-                  ? 'animate-bounce text-cyber-400' 
+                  ? 'animate-bounce text-cyber-400 music-emoji-flicker' 
                   : 'text-cyber-300/40'
               }`}
               style={{
@@ -168,9 +168,9 @@ const RetroMusicPlayer: React.FC = () => {
           {musicEmojis.slice(5, 10).map((emoji, index) => (
             <span 
               key={`right-${index}`}
-              className={`text-lg transition-all duration-300 ${
+              className={`text-lg transition-all duration-300 music-emoji-grunge ${
                 playState === 'playing' 
-                  ? 'animate-bounce text-cyber-400' 
+                  ? 'animate-bounce text-cyber-400 music-emoji-flicker' 
                   : 'text-cyber-300/40'
               }`}
               style={{

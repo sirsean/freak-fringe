@@ -114,28 +114,130 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 10px var(--color-brand-600);
   }
   .btn-audio {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded border border-cyan-400 text-cyber-300 bg-transparent transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded border text-cyber-300 transition-all duration-300 relative;
     font-family: var(--font-family-mono);
     cursor: pointer;
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.4) 0%, transparent 40%),
+      linear-gradient(135deg, rgba(31, 20, 10, 0.8) 0%, rgba(67, 20, 7, 0.6) 100%);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, 
+      var(--color-cyber-400) 0%, 
+      rgba(139, 69, 19, 0.8) 25%, 
+      var(--color-cyber-500) 50%,
+      rgba(105, 105, 105, 0.6) 75%,
+      var(--color-cyber-400) 100%) 1;
+    box-shadow: 
+      inset 0 1px 3px rgba(0, 0, 0, 0.5),
+      inset 0 -1px 2px rgba(139, 69, 19, 0.3),
+      0 0 8px rgba(92, 250, 255, 0.3);
+    text-shadow: 0 0 3px rgba(92, 250, 255, 0.5);
+  }
+  .btn-audio::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 8px;
+    height: 3px;
+    background: rgba(139, 69, 19, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .btn-audio::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 8px;
+    width: 12px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4), transparent);
+    pointer-events: none;
   }
   .btn-audio:hover {
-    background: var(--color-brand-950);
-    box-shadow: 0 0 12px var(--color-cyber-500);
-    text-shadow: 0 0 5px var(--color-cyber-400);
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.5) 0%, transparent 40%),
+      linear-gradient(135deg, rgba(67, 20, 7, 0.9) 0%, rgba(31, 20, 10, 0.8) 100%);
+    box-shadow: 
+      inset 0 1px 4px rgba(0, 0, 0, 0.6),
+      inset 0 -1px 3px rgba(139, 69, 19, 0.4),
+      0 0 15px rgba(92, 250, 255, 0.4),
+      0 0 25px rgba(255, 149, 0, 0.2);
+    text-shadow: 
+      0 0 5px rgba(92, 250, 255, 0.8),
+      0 0 10px rgba(255, 149, 0, 0.3);
+    transform: translateY(-1px);
   }
   .btn-audio:active {
-    transform: scale(0.97);
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+      inset 0 2px 6px rgba(0, 0, 0, 0.7),
+      inset 0 -1px 2px rgba(139, 69, 19, 0.5),
+      0 0 8px rgba(92, 250, 255, 0.2);
   }
   .btn-audio:disabled {
-    opacity: 0.6;
+    opacity: 0.4;
     cursor: not-allowed;
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(105, 105, 105, 0.3) 0%, transparent 40%),
+      linear-gradient(135deg, rgba(20, 15, 8, 0.6) 0%, rgba(40, 25, 12, 0.4) 100%);
+    box-shadow: 
+      inset 0 1px 3px rgba(0, 0, 0, 0.8),
+      0 0 3px rgba(92, 250, 255, 0.1);
+    text-shadow: none;
   }
   .music-bar {
-    @apply flex items-center justify-center px-4 py-3 backdrop-blur-sm;
-    background: color-mix(in oklab, var(--color-dark-surface) 70%, transparent 30%);
-    border-top: 1px solid var(--color-cyber-500);
-    border-bottom: 1px solid var(--color-cyber-500);
+    @apply flex items-center justify-center px-4 py-3 backdrop-blur-sm relative;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(85, 107, 47, 0.2) 0%, transparent 30%),
+      radial-gradient(circle at 60% 10%, rgba(105, 105, 105, 0.4) 0%, transparent 20%),
+      linear-gradient(135deg, rgba(31, 20, 10, 0.9) 0%, rgba(15, 8, 3, 0.8) 100%);
+    border-top: 2px solid var(--color-cyber-500);
+    border-bottom: 2px solid var(--color-cyber-500);
+    border-left: 1px solid rgba(92, 250, 255, 0.3);
+    border-right: 1px solid rgba(92, 250, 255, 0.3);
     min-height: 60px;
+    box-shadow: 
+      inset 0 2px 8px rgba(0, 0, 0, 0.6),
+      inset 0 -2px 4px rgba(139, 69, 19, 0.3),
+      0 1px 3px rgba(92, 250, 255, 0.2);
+    position: relative;
+  }
+  .music-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        rgba(92, 250, 255, 0.05) 1px,
+        transparent 2px,
+        transparent 8px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+    pointer-events: none;
+  }
+  .music-bar::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 20px;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(139, 69, 19, 0.6) 30%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
   }
 }
 
@@ -145,6 +247,49 @@ h1, h2, h3, h4, h5, h6 {
   }
   .text-glow-cyan {
     text-shadow: 0 0 4px rgba(0, 229, 255, 0.9), 0 0 8px rgba(0, 229, 255, 0.7), 0 0 16px rgba(0, 229, 255, 0.6);
+  }
+  .music-emoji-grunge {
+    filter: 
+      contrast(1.2) 
+      saturate(0.8) 
+      sepia(0.1) 
+      hue-rotate(10deg);
+    text-shadow: 
+      0 0 3px rgba(92, 250, 255, 0.4),
+      1px 1px 2px rgba(0, 0, 0, 0.5),
+      -1px 0 1px rgba(139, 69, 19, 0.3);
+  }
+  .music-emoji-flicker {
+    animation: grunge-flicker 3s infinite linear;
+  }
+}
+
+/* Grunge flicker animation for broken electronics */
+@keyframes grunge-flicker {
+  0%, 19.9%, 22%, 62.9%, 64%, 99.9% {
+    opacity: 1;
+    filter: 
+      contrast(1.2) 
+      saturate(0.8) 
+      sepia(0.1) 
+      hue-rotate(10deg);
+  }
+  20%, 21.9%, 63%, 63.9% {
+    opacity: 0.4;
+    filter: 
+      contrast(1.5) 
+      saturate(0.3) 
+      sepia(0.3) 
+      hue-rotate(-5deg)
+      brightness(1.2);
+  }
+  21%, 21.5% {
+    opacity: 0.8;
+    filter: 
+      contrast(0.9) 
+      saturate(1.2) 
+      sepia(0.05) 
+      hue-rotate(20deg);
   }
 }
 
