@@ -1,24 +1,35 @@
-import { Routes, Route } from 'react-router-dom'
+import React from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import './root.css'
-import Gallery from './Gallery'
-import Viewer from './Viewer'
 import Header from './Header'
+import RetroHome from './pages/RetroHome'
 
-function App() {
+const Gallery = lazy(() => import('./Gallery'))
+const Viewer = lazy(() => import('./Viewer'))
+
+const App: React.FC = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
   return (
-    <div className="flex flex-col min-h-screen" style={{backgroundColor: 'var(--color-dark-bg)'}}>
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: isHome ? 'transparent' : 'var(--color-dark-bg)' }}>
       <Routes>
-        <Route path="/" element={
-          <>
-            <Header />
-            <Gallery />
-          </>
+        <Route path="/" element={<RetroHome />} />
+        <Route path="/gallery" element={
+          <Suspense fallback={<div />} > 
+            <>
+              <Header />
+              <Gallery />
+            </>
+          </Suspense>
         } />
         <Route path="/page/:id" element={
-          <>
-            <Header />
-            <Viewer />
-          </>
+          <Suspense fallback={<div />} > 
+            <>
+              <Header />
+              <Viewer />
+            </>
+          </Suspense>
         } />
       </Routes>
     </div>

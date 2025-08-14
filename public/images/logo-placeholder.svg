@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="128" viewBox="0 0 512 128" role="img" aria-label="Logo Placeholder">
+  <rect width="100%" height="100%" fill="#111111"/>
+  <rect x="4" y="4" width="504" height="120" fill="none" stroke="#444444" stroke-width="2"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"" font-size="48" fill="#EEEEEE" letter-spacing="4">LOGO</text>
+</svg>
+

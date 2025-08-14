@@ -2,6 +2,12 @@
 
 A modern digital comic reader web application built with React and TypeScript, featuring a clean gallery interface, full-screen viewing experience, and comprehensive accessibility support. Optimized for performance with responsive images, keyboard navigation, and seamless deployment on Cloudflare Workers.
 
+## Retro Theme Preview
+
+![Retro theme preview](public/images/template.jpg)
+
+The interface adopts a playful late-90s web aesthetic with neon accents, pixel art flourishes, and CRT-inspired glow effects. The gallery and reader are styled with Tailwind CSS utilities for consistent spacing, contrast, and motion.
+
 ## Features
 
 • **Gallery Grid View**: Responsive thumbnail grid with hover effects and smooth transitions  
@@ -179,6 +185,19 @@ npm run gen:thumbs
    ```
 3. **Generate thumbnails**: `npm run gen:thumbs`
 4. **Test in browser**: Development server will hot-reload with new content
+
+## Accessibility Notes
+
+The app is built with accessibility-first principles:
+
+- Keyboard: Full keyboard support across gallery and viewer (Tab, Shift+Tab, Enter/Space on buttons, Arrow Left/Right to navigate pages, and Esc to return from viewer).
+- Semantics: Semantic HTML (section, figure/figcaption, headings) and ARIA labels for interactive elements (e.g., the news marquee region includes aria-label and role).
+- Alt text: Descriptive alt text generated from comic metadata for both thumbnails and full images.
+- Focus visibility: High-contrast focus rings and clear interaction states; buttons/links maintain visible focus.
+- Motion: Hover/transition effects are subtle; consider enabling reduced motion system settings. The marquee is implemented as a non-essential enhancement and is labeled for assistive tech.
+- Color contrast: Neon accents are paired with dark backgrounds; text colors are chosen to meet WCAG AA in primary flows.
+
+If you encounter any accessibility issues or have suggestions, please open an issue.
 
 ## Deployment
 

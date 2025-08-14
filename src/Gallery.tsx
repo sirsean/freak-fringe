@@ -11,7 +11,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl p-4 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="w-full mx-auto px-2 sm:px-4 md:px-6 py-4 grid gap-2 sm:gap-4 md:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-none md:max-w-3xl">
       {comics.map((comic) => (
         <div
           key={comic.id}

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Unfathomed Mysteries of the Black Triangle" />
+    <meta name="description" content="Freak Fringe is an accessible, high-contrast digital comic reader with keyboard navigation, responsive images, and a retro-styled gallery." />
     <meta name="theme-color" content="#000000" />
     
     <!-- PWA and mobile optimizations -->
@@ -12,6 +12,35 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
     <title>Freak Fringe</title>
+    <style>
+      /* Minimal styling for the retro 88x31 badge row */
+      footer.site-footer {
+        margin-top: 48px;
+        padding: 16px 0 32px;
+        background: #000;
+        color: #bbb;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 8px;
+        max-width: 960px;
+      }
+      .badge-row a {
+        display: inline-block;
+        line-height: 0;
+      }
+      .site-footer small {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

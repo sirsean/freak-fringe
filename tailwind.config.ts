@@ -34,6 +34,13 @@ const config: Config = {
           900: '#78350f',
           950: '#451a03',
         },
+        // Bright cyan/turquoise colors
+        cyber: {
+          300: '#5cfaff',
+          400: '#2ff1ff',
+          500: '#00e5ff',
+          600: '#00c2d6',
+        },
         // Surface colors with orange tint
         surface: {
           50: '#fffaf8',
@@ -48,6 +55,17 @@ const config: Config = {
           900: '#83341c',
           950: '#471a0c',
         },
+      },
+      fontFamily: {
+        retro: ['"Press Start 2P"', 'cursive'],
+      },
+      boxShadow: {
+        // Neon glow style shadows
+        neon: '0 0 5px rgba(255, 149, 0, 0.6), 0 0 10px rgba(255, 149, 0, 0.5), 0 0 20px rgba(255, 149, 0, 0.4)',
+        'neon-blue': '0 0 5px rgba(59, 130, 246, 0.7), 0 0 10px rgba(59, 130, 246, 0.6), 0 0 20px rgba(59, 130, 246, 0.5)',
+        'neon-pink': '0 0 5px rgba(236, 72, 153, 0.7), 0 0 10px rgba(236, 72, 153, 0.6), 0 0 20px rgba(236, 72, 153, 0.5)',
+        'neon-green': '0 0 5px rgba(34, 197, 94, 0.7), 0 0 10px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.5)',
+        'neon-cyan': '0 0 5px rgba(0, 229, 255, 0.7), 0 0 10px rgba(0, 229, 255, 0.6), 0 0 20px rgba(0, 229, 255, 0.5)',
       },
     },
   },
