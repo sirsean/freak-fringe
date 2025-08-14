@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from '../components/Intro';
+import RetroMusicPlayer from '../components/RetroMusicPlayer';
 import FeaturedGalleryPreview from '../components/FeaturedGalleryPreview';
 import Figurehead from '../components/Figurehead';
 import Message from '../components/Message';
@@ -22,6 +23,7 @@ const RetroHome: React.FC = () => {
       {/* Narrow column wrapper */}
       <div className="max-w-[900px] mx-auto flex flex-col gap-12 px-4 pb-16 relative">
         <Intro />
+        <RetroMusicPlayer />
         <FeaturedGalleryPreview />
         <Figurehead />
         <Message />

@@ -113,6 +113,29 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(0.95);
     box-shadow: 0 0 10px var(--color-brand-600);
   }
+  .btn-audio {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded border border-cyan-400 text-cyber-300 bg-transparent transition-all duration-300;
+    font-family: var(--font-family-mono);
+    cursor: pointer;
+  }
+  .btn-audio:hover {
+    background: var(--color-brand-950);
+    box-shadow: 0 0 12px var(--color-cyber-500);
+    text-shadow: 0 0 5px var(--color-cyber-400);
+  }
+  .btn-audio:active {
+    transform: scale(0.97);
+  }
+  .btn-audio:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .music-bar {
+    @apply flex items-center justify-between px-4 py-2 backdrop-blur-sm;
+    background: color-mix(in oklab, var(--color-dark-surface) 70%, transparent 30%);
+    border-top: 1px solid var(--color-cyber-500);
+    border-bottom: 1px solid var(--color-cyber-500);
+  }
 }
 
 @layer utilities {
