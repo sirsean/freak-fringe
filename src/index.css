@@ -55,9 +55,9 @@
   --color-dark-text-muted: #d97706;
   
   /* Comic font stack with excellent mobile fallbacks */
-  --font-family-comic: "Comic Neue", "Comic Sans MS", "Chalkboard SE", "marker felt-thin", "Comic Sans", cursive, sans-serif;
+  --font-family-comic: "Comic Neue", "Comic Sans MS", "Chalkboard SE", "Comic Sans", "GT-Pressura", system-ui, sans-serif;
   --font-family-display: var(--font-family-comic);
-  --font-family-mono: "Comic Neue", "Comic Sans MS", "Chalkboard SE", "marker felt-thin", "Comic Sans", cursive, monospace;
+  --font-family-mono: "Comic Neue", "Comic Sans MS", "Chalkboard SE", "Comic Sans", "GT-Pressura", system-ui, monospace;
   --font-family-sans: var(--font-family-comic);
 }
 

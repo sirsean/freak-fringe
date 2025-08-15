@@ -57,11 +57,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        retro: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'sans-serif'],
-        comic: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'sans-serif'],
-        sans: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'system-ui', 'sans-serif'],
-        mono: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'monospace'],
-        serif: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"marker felt-thin"', '"Comic Sans"', 'cursive', 'serif'],
+        retro: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"Comic Sans"', '"GT-Pressura"', 'system-ui', 'sans-serif'],
+        comic: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"Comic Sans"', '"GT-Pressura"', 'system-ui', 'sans-serif'],
+        sans: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"Comic Sans"', '"GT-Pressura"', 'system-ui', 'sans-serif'],
+        mono: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"Comic Sans"', '"GT-Pressura"', 'system-ui', 'monospace'],
+        serif: ['"Comic Neue"', '"Comic Sans MS"', '"Chalkboard SE"', '"Comic Sans"', '"GT-Pressura"', 'system-ui', 'serif'],
       },
       boxShadow: {
         // Neon glow style shadows
