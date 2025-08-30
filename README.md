@@ -37,8 +37,7 @@ The interface adopts a playful late-90s web aesthetic with neon accents, pixel a
 • **Sharp**: High-performance image processing for thumbnail generation  
 • **React Router DOM 7**: Client-side routing with gallery and viewer pages  
 • **ESLint + TypeScript ESLint**: Code linting with TypeScript rules  
-• **Prettier**: Code formatting (configured via ESLint integration)  
-• **Concurrently**: Parallel development server management
+• **Prettier**: Code formatting (configured via ESLint integration)
 
 ## Project Structure
 
@@ -85,13 +84,12 @@ freak-fringe/
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start development servers (Vite frontend + Cloudflare Worker) concurrently |
-| `npm run dev:vite` | Start only Vite development server on port 5173 |
-| `npm run dev:worker` | Start only Cloudflare Worker local development server on port 8787 |
+| `npm run dev` | Start the development server with Vite and Cloudflare integration |
 | `npm run build` | Production build: generate thumbnails → compile TypeScript → build with Vite |
+| `npm run deploy` | Deploy the application to Cloudflare |
 | `npm run gen:thumbs` | Generate 1x and 2x resolution thumbnails from source images |
 | `npm run lint` | Run ESLint code analysis across all TypeScript and JavaScript files |
-| `npm run preview` | Preview production build locally using Vite's preview server |
+| `npm run preview` | Preview the production build remotely using Cloudflare's tunnel |
 
 ## Development Setup
 
@@ -113,15 +111,14 @@ freak-fringe/
    ```
    This installs all production and development dependencies including React 19, TypeScript 5, Vite 7, and TailwindCSS 4.
 
-3. **Start development servers**:
+3. **Start the development server**:
    ```bash
    npm run dev
    ```
-   This command runs both Vite (frontend) and Cloudflare Worker (local) servers simultaneously using concurrently.
+   This command starts the Vite development server, which is integrated with the Cloudflare worker for a seamless experience.
 
 4. **Open in your browser**:
-   - **Frontend Development**: http://localhost:5173 (Vite dev server with HMR)
-   - **Worker Development**: http://localhost:8787 (Cloudflare Worker local environment)
+   - **Development**: http://localhost:5173
 
 5. **Verify setup**: You should see the comic gallery with existing demo comics ("Freak Fringe" and "Far Out")
 
@@ -201,10 +198,10 @@ If you encounter any accessibility issues or have suggestions, please open an is
 
 ## Deployment
 
-**Quick Cloudflare Workers Deployment**:
+**Quick Cloudflare Deployment**:
 1. Configure your `wrangler.toml` file with your account details
 2. Run `npm run build` to create the production bundle
-3. Use `wrangler pages publish dist` to deploy to Cloudflare Workers
+3. Run `npm run deploy` to publish the application to Cloudflare
 4. Enjoy global edge deployment with built-in CDN distribution
 
 The application includes built-in optimizations for Cloudflare Workers including responsive images, proper caching headers, and accessibility enhancements.
