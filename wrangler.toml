@@ -3,9 +3,6 @@ account_id = "f400e5cfc5e8cd621a3c3f9264a92bc4"
 compatibility_date = "2024-06-01"
 main = "worker/index.ts"
 
-[build]
-command = "npm run build"
-
 [assets]
 binding = "ASSETS"
 directory = "./dist"

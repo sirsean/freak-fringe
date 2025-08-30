@@ -4,13 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev:vite": "vite",
-    "dev:worker": "wrangler dev --site --local",
-    "dev": "concurrently -k -n vite,worker \"npm:dev:vite\" \"npm:dev:worker\"",
     "build": "npm run gen:thumbs && tsc -b && vite build",
+    "deploy": "wrangler deploy",
+    "dev": "vite dev",
     "gen:thumbs": "node scripts/gen-thumbs.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "wrangler dev --remote"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
@@ -20,13 +19,13 @@
     "react-router-dom": "^7.7.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.12.1",
     "@cloudflare/workers-types": "^4.20250802.0",
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.21",
-    "concurrently": "^9.2.0",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
